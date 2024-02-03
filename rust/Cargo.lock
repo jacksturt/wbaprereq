@@ -847,6 +847,15 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f7144d30dcf0fafbce74250a3963025d8d52177934239851c917d29f1df280c2"
 
 [[package]]
+name = "convert_case"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ec182b0ca2f35d8fc196cf3404988fd8b8c739a4d270ff118a398feb0cbec1ca"
+dependencies = [
+ "unicode-segmentation",
+]
+
+[[package]]
 name = "core-foundation"
 version = "0.9.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2716,7 +2725,9 @@ dependencies = [
 name = "rust"
 version = "0.1.0"
 dependencies = [
+ "borsh 0.10.3",
  "solana-client",
+ "solana-idlgen",
  "solana-program",
  "solana-sdk",
 ]
@@ -3231,6 +3242,20 @@ dependencies = [
  "proc-macro2",
  "quote",
  "rustc_version",
+ "syn 2.0.48",
+]
+
+[[package]]
+name = "solana-idlgen"
+version = "0.1.0"
+source = "git+https://github.com/deanmlittle/solana-idlgen.git#a8c4d04e2c12a6807d1db0f8c7948a0d2f423fe3"
+dependencies = [
+ "convert_case",
+ "proc-macro2",
+ "quote",
+ "serde",
+ "serde_json",
+ "solana-sdk",
  "syn 2.0.48",
 ]
 
@@ -4467,6 +4492,12 @@ checksum = "5c5713f0fc4b5db668a2ac63cdb7bb4469d8c9fed047b1d0292cc7b0ce2ba921"
 dependencies = [
  "tinyvec",
 ]
+
+[[package]]
+name = "unicode-segmentation"
+version = "1.10.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1dd624098567895118886609431a7c3b8f516e41d30e0643f03d94592a147e36"
 
 [[package]]
 name = "unicode-width"
